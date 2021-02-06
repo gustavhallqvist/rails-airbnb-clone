@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
   def index
     @gardens = Garden.all
   end
