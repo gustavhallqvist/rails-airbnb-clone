@@ -1,7 +1,7 @@
 <div class="container">
-  <h1> %= @garden.name </h1>
-  <h3>
-    <%= @garden.description %>
-    <%= @garden.price  %>
-  </h3>
+  <h1> <%= @garden.name %> </h1>
+  <h3> Description: <%= @garden.description %> </h3>
+    <h4 > Price: £<%= @garden.price %> </h4>
+    <div > <%= link_to "Back to Gardens", gardens_path  %> </div>
+
 </div>
