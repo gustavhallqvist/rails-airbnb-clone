@@ -1,5 +1,5 @@
 class GardensController < ApplicationController
-  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :set_garden, only: [:show, :edit, :update, :destroy]
   def index
     @gardens = Garden.all
   end
@@ -13,6 +13,7 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
     if @garden.save
       redirect_to garden_path(@garden)
     else
