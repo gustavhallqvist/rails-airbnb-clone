@@ -4,7 +4,7 @@
 </div>
 
 <div>
-  <%= @gardens.each do |garden| %>
+  <% @gardens.each do |garden| %>
     <%= link_to garden.name, garden_path(garden) %>
   <% end %>
 </div>
