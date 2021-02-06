@@ -8,21 +8,24 @@
 
 puts 'Creating sample users'
 10.times do
-  User.new(
+  user = User.new(
     email: Faker::Internet.email,
     password: 'rentmygarden',
     )
+  user.save
 end
 
 puts 'Creating sample gardens'
 counter = 1
-100.times do
-  Garden.new(
+50.times do
+  garden = Garden.new(
     name: "Garden #{counter}",
     description: Faker::Lorem.paragraph,
     location: Faker::Address.full_address,
     price: rand(10..500),
+    user_id: rand(1..10)
     )
+  garden.save
   counter += 1
 end
 
