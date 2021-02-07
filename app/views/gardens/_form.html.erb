@@ -1,0 +1,9 @@
+<div class="container m-3">
+  <%= simple_form_for(@garden) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :price, label: 'Price' %>
+    <%= f.submit "List Garden", class: "btn btn-primary" %>
+  <% end %>
+</div>
