@@ -3,4 +3,10 @@
   <h3> Description: <%= @garden.description %> </h3>
     <h4 > Price: £<%= @garden.price %> </h4>
     <div > <%= link_to "Back to Gardens", gardens_path  %> </div>
+
+    <div class="container">
+  <h1>New booking</h1>
+  <%= render "bookings/form", garden: @garden, booking: @booking %>
+</div>
+
 </div>
