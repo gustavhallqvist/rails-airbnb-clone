@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Clearing databse'
+Booking.destroy_all
+Garden.destroy_all
+User.destroy_all
+
 puts 'Creating sample users'
 10.times do
   user = User.new(
@@ -14,6 +19,7 @@ puts 'Creating sample users'
     )
   user.save
 end
+puts "Created #{User.count} sample users"
 
 puts 'Creating sample gardens'
 counter = 1
@@ -23,10 +29,11 @@ counter = 1
     description: Faker::Lorem.paragraph,
     location: Faker::Address.full_address,
     price: rand(10..500),
-    user_id: rand(1..10)
+    user: User.all.sample
     )
   garden.save
   counter += 1
 end
 
+puts "Created #{Garden.count} sample gardens"
 puts "Seed complete"
