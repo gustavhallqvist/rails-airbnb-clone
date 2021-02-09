@@ -19,11 +19,15 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
       render :new
     end
   end
+  
+  def edit; end
 
-end
-
+  def update
+    @booking.update(booking_params)
+    redirect_to bookings_path
+  end
+  
 private
-
   def set_booking
     @booking = Booking.find(params[:id])
   end
@@ -31,3 +35,4 @@ private
   def booking_params
     params.require(:booking).permit(:date)
   end
+end
