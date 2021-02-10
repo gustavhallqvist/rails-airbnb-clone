@@ -2,10 +2,11 @@
   <h1> Gardens </h1>
   <h3>Find the perfect garden to rent</h3>
     <%= link_to "Add A New Garden", new_garden_path, class: "btn btn-primary" %>
-</div>
 
-<div>
-  <% @gardens.each do |garden| %>
-    <%= link_to garden.name, garden_path(garden) %>
-  <% end %>
+
+  <div>
+    <% @gardens.each do |garden| %>
+      <%= link_to garden.name, garden_path(garden) %>
+    <% end %>
+  </div>
 </div>
