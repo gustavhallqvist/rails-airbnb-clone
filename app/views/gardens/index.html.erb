@@ -1,10 +1,10 @@
-<div class="d-flex flex-wrap m-3" id="mural">
+<div class="d-flex justify-content-center flex-wrap m-3" id="mural">
   <% @gardens.each do |garden| %>
-    <div id="small-card" class="card m-3" style="width: 18rem;">
+    <div class="card m-3 small-garden-card" style="width: 18rem;">
       <% if garden.image.attached? %>
-        <%= cl_image_tag garden.image.key, crop: :fill, class: 'card-img' %>
+        <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
       <% else %>
-        <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
+        <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
       <% end %>
       <div class="card-body">
         <h5 class="card-title"><%= garden.name %></h5>

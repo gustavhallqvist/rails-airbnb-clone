@@ -1,12 +1,18 @@
-<div class="container">
-  <h1> <%= @garden.name %> </h1>
-  <h3> Description: <%= @garden.description %> </h3>
-    <h4 > Price: £<%= @garden.price %> </h4>
-    <div > <%= link_to "Back to Gardens", gardens_path  %> </div>
-
-    <div class="container">
-  <h1>New booking</h1>
-  <%= render "bookings/form", garden: @garden, booking: @booking %>
-</div>
-
+<div class="d-flex justify-content-center m-3">
+  <div class="card large-garden-card" style="width: 32rem;">
+    <div class="card-body">
+      <h2 class="card-title"><%= @garden.name %></h2>
+      <h5 class="card-title">Description</h5>
+      <p><%= @garden.description %></p>
+      <h5 class="card-title">Location</h5>
+      <o><%= @garden.location %></p>
+      <br>
+      <%= render "bookings/form", garden: @garden, booking: @booking %>
+    </div>
+  </div>
+  <% if @garden.image.attached? %>
+    <%= cl_image_tag @garden.image.key, crop: :fill, class: 'large-img' %>
+  <% else %>
+    <%= image_tag 'garden.jpg', crop: :fill, class: 'large-img' %>
+  <% end %>
 </div>
