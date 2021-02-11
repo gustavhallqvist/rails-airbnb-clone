@@ -9,6 +9,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= garden.name %></h5>
         <h5 class="card-title"><%= garden.location %></h5>
+        <h5 class="card-title">£ <%= garden.price %></h5>
         <%= link_to 'See details', garden_path(garden), class: "btn btn-primary" %>
       </div>
     </div>

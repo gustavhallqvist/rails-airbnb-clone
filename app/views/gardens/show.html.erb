@@ -5,7 +5,9 @@
       <h5 class="card-title">Description</h5>
       <p><%= @garden.description %></p>
       <h5 class="card-title">Location</h5>
-      <o><%= @garden.location %></p>
+      <p><%= @garden.location %></p>
+      <h5 class="card-title">Price</h5>
+      <p>£ <%= @garden.price %></p>
       <br>
       <%= render "bookings/form", garden: @garden, booking: @booking %>
     </div>
