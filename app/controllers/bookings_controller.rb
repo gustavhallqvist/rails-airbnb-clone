@@ -31,6 +31,11 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     redirect_to bookings_path
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
 private
 
   def set_booking
