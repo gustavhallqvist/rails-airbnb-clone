@@ -1,11 +1,22 @@
-<h1>Index</h1>
+<h1>Your Bookings</h1>
 
-<ul>
+<div class="container">
   <% @bookings.each do |booking|  %>
-    <li>
-      <%= booking.garden.name  %>
-      <%= booking.date %>
-    </li>
+    <div class="card-booking m-3">
+      <% if booking.garden.image.attached? %>
+          <%= cl_image_tag booking.garden.image.key, crop: :fill, class: 'card-img' %>
+        <% else %>
+          <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
+        <% end %>
+      <div class="card-booking-infos">
+        <h2> <%= link_to booking.garden.name, booking_path(booking) %> </h2>
+        <p> Your Booking Date: <%= booking.date %> <strong>Confirmed?</strong> </p>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+
+
+
+
 
