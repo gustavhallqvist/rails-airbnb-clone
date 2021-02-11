@@ -20,10 +20,9 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     end
   end
 
-def show
+  def show
    @bookings = Booking.where(user: current_user)
-
-end
+  end
 
   def edit; end
 
@@ -33,11 +32,12 @@ end
   end
 
 private
+
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :name)
+    params.require(:booking).permit(:date)
   end
 end
