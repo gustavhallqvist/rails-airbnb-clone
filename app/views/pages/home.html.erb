@@ -1,3 +1,17 @@
-<h1>Pages#home</h1>
-<p>Hello</p>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home_banner" <%= image_tag "garden.jpg", alt: "alttext"%>
+  <div class="container">
+    <h1>Rent A Garden </h1>
+    <p>Rent out your garden or enjoy someone elses</p>
+
+    <div class="btn-group" style="display:inline-block;" >
+      <%= link_to "Book A Garden", gardens_path, class: "btn btn-primary" %>
+      <%= link_to "Host Your Garden", new_garden_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" style="text-align: center;">
+    <h2>Feature Gardens</h2>
+
+</div>
+
