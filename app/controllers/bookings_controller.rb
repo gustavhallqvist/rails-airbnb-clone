@@ -19,20 +19,25 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
       render :new
     end
   end
-  
+
+def show
+   @bookings = Booking.where(user: current_user)
+
+end
+
   def edit; end
 
   def update
     @booking.update(booking_params)
     redirect_to bookings_path
   end
-  
+
 private
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :name)
   end
 end
