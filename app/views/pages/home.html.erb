@@ -1,7 +1,8 @@
-<div class="home_banner" <%= image_tag "garden.jpg", alt: "alttext"%>
+<!-- hero banner -->
+<div class="home_banner" <%= image_tag "garden.jpg", alt: "alttext"%>>
   <div class="container">
     <h1>Rent A Garden </h1>
-    <p>Rent out your garden or enjoy someone elses</p>
+    <p>Rent out your garden or enjoy someone else's</p>
 
     <div class="btn-group" style="display:inline-block;" >
       <%= link_to "Book A Garden", gardens_path, class: "btn btn-primary" %>
@@ -10,8 +11,47 @@
   </div>
 </div>
 
-<div class="wrapper" style="text-align: center;">
-    <h2>Feature Gardens</h2>
-
+<!-- popular garden block -->
+<div class="wrapper">
+  <h3 class="text-center" style="padding: 80px">Some of our most <strong>popular gardens</strong> from around the world</h3>
+  <div class="container">
+    <div class="row">
+      <% @gardens.last(3).each do |garden| %>
+       <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-header" style="text-align: center; border-radius: 8px">
+          <%= link_to garden.name, garden_path(garden) %>
+          <p>City</p>
+         <div class="home-card-container">
+          </div>
+          <div class="card m-3 small-garden-card" style="box-shadow: 0 0 3px rgba(0,0,0,0.3);">
+            <% if garden.image.attached? %>
+              <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
+            <% else %>
+              <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
+            <% end %>
+          <div class="card-links">
+            <div>
+              <i class="fas fa-heart"></i> 356
+            </div>
+          <div>
+            <%= link_to "Book Garden", garden_path(garden) %>
+            </div>
+          </div>
+          </div>
+        </div>
+       </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
+<!-- popular hosts -->
+<div class="wrapper">
+  <h3 class="text-center" style="padding: 80px">Some of our most <strong>popular hosts</strong> from around the world</h3>
+</div>
+
+
+<!-- reviews -->
+<div class="wrapper">
+  <h3 class="text-center" style="padding: 80px">Glowing <strong>reviews</strong> from our fans</h3>
+</div>
