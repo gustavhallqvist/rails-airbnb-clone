@@ -39,9 +39,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8em;
-  border-bottom: 2px solid grey;
+  font-size: 1em;
+  border-bottom: 1px solid light-grey;
   background: white;
+  a {
+    text-decoration: none;
+  }
 }
 
 // .home_grid {
