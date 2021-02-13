@@ -12,7 +12,7 @@ Garden.destroy_all
 User.destroy_all
 
 puts 'Creating sample users'
-10.times do
+5.times do
   user = User.new(
     email: Faker::Internet.email,
     password: 'rentmygarden',
@@ -22,18 +22,77 @@ end
 puts "Created #{User.count} sample users"
 
 puts 'Creating sample gardens'
-counter = 1
-50.times do
-  garden = Garden.new(
-    name: "Garden #{counter}",
-    description: Faker::Lorem.paragraph,
-    location: Faker::Address.full_address,
-    price: rand(10..500),
+  Garden.create(
+    name: "Garden with pool",
+    description: "Garden with a small pool in Seville",
+    location: "Seville, Spain",
+    price: 100,
     user: User.all.sample
     )
-  garden.save
-  counter += 1
-end
+
+  Garden.create(
+    name: "Small Garden",
+    description: "Small garden in the heart of Paris",
+    location: "Rue Saint-Dominique, Paris",
+    price: 70,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Large Field",
+    description: "Large field in Sussex with plenty of space to throw a party",
+    location: "Bashurst Hill, Horsham",
+    price: 500,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Large Garden",
+    description: "Large garden in South Kensington with plent of space for a BBQ",
+    location: "South Kensington, London",
+    price: 140,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Garden with a trampoline",
+    description: "Garden ideal for family's with a trampoline for childen and adults to play",
+    location: "Brixton, London",
+    price: 80,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Beautiful Garden",
+    description: "A stunning Garden in Lyon with beautiful flowers",
+    location: "Lyon, France",
+    price: 60,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Rooftop Garden",
+    description: "A rooftop garden in Madrid, ideal for a drinks party",
+    location: "Madrid, Spain",
+    price: 110,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Garden with hot tub",
+    description: "A garden with a hot tub in the heart of Amsterdam",
+    location: "Amsterdam, Netherlands",
+    price: 110,
+    user: User.all.sample
+    )
+
+  Garden.create(
+    name: "Garden with beach views",
+    description: "A garden in Barcelona with views of the Beach",
+    location: "Barcelona, Spain",
+    price: 110,
+    user: User.all.sample
+    )
 
 puts "Created #{Garden.count} sample gardens"
 puts "Seed complete"

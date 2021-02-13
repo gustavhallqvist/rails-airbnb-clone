@@ -4,10 +4,19 @@ class GardensController < ApplicationController
 
   def index
     @gardens = Garden.all
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @gardens.geocoded.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { garden: garden })
+      }
+    end
   end
 
   def show
     @booking = Booking.new
+    @markers = [{lat: @garden.latitude, lng: @garden.longitude}]
   end
 
   def new
