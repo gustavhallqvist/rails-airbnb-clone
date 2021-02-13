@@ -27,6 +27,12 @@ import "bootstrap";
 
 import { initUpdateNavbarOnScroll } from "../components/navbar";
 
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
+
 initUpdateNavbarOnScroll();
 
 // Internal imports, e.g:

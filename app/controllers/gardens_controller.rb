@@ -4,6 +4,13 @@ class GardensController < ApplicationController
 
   def index
     @gardens = Garden.all
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @gardens.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
