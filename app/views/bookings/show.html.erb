@@ -1,12 +1,35 @@
-<h2> Please wait for the owner of  <%= @booking.garden.name  %> to confirm your booking </h2>
-<h5> Today is <%= Date.today %> you will receive an email confirmation in the next 48 hours </h5>
+<h1 class="d-flex justify-content-center m-3">You made it </h1>
+
+
+<h2 class="d-flex justify-content-center m-3"> The owner of  <%= @booking.garden.name%> will confirm shortly </h2>
 
 
 
+<h3 class="d-flex justify-content-center m-3"> The details of your booking are as follows</h3>
+
+
+
+&emsp;
 <ul>
+  <li> Date &time : <%= @booking.date%></li>
+  <li> Price : £<%= @booking.garden.price%></li>
+  <li> Address : <%= @booking.garden.location%></li>
+  <li> About the garden : <%= @booking.garden.description%></li>
+</ul>
+&ensp;
+
+<% if @booking.garden.image.attached? %>
+  <%= cl_image_tag garden.image.key, crop: :fill, class: 'card-img' %>
+<% else %>
+  <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
+<% end %>
+
+
+<div style="height:10%; position:relative; bottom:20px;" class="d-flex justify-content-botom m-3">
+  <ul>
   <li><%= link_to "Delete Booking ", @booking, method: "delete"%></li>
   <li><%= link_to "Your bookings", bookings_path %></li>
   <li> <%= link_to "Make another booking", gardens_path %></li>
 </ul>
-
+</div>
 
