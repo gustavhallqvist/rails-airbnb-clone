@@ -27,6 +27,7 @@
 
 <div style="height:10%; position:relative; bottom:20px;" class="d-flex justify-content-botom m-3">
   <ul>
+  <li><%= link_to "My details", current_user %></li>
   <li><%= link_to "Delete Booking ", @booking, method: "delete"%></li>
   <li><%= link_to "Your bookings", bookings_path %></li>
   <li> <%= link_to "Make another booking", gardens_path %></li>
