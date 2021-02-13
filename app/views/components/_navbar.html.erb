@@ -34,7 +34,7 @@
              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
            <% else %>
              <%= link_to "Log in", user_session_path, class: "dropdown-item" %>
-             <%= link_to "Sign-up", new_user_session_path, class: "dropdown-item" %>
+             <%= link_to "Sign-up", new_user_registration_path, class: "dropdown-item" %>
              <%= link_to "Host your garden", new_garden_path, class: "dropdown-item" %>
            <% end %>
 
