@@ -14,7 +14,7 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     @booking.user = current_user
     @booking.garden = Garden.find(params[:garden_id])
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     else
       render :new
     end
