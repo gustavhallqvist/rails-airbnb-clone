@@ -29,6 +29,9 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
 
+gem 'gravatar_image_tag', github: 'mdeering/gravatar_image_tag'
+gem "image_processing", "~> 1.0"
+gem 'mini_magick', '~> 4.9', '>= 4.9.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
