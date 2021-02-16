@@ -3,7 +3,11 @@ class GardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @gardens = Garden.all
+    if params[:query].present?
+      @gardens = Garden.search_by_location(params[:query])
+    else
+      @gardens = Garden.all
+    end
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @gardens.geocoded.map do |garden|
       {
