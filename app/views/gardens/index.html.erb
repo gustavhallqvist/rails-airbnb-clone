@@ -4,30 +4,27 @@
     params[:query],
     class: "form-control",
     placeholder: "Search by location"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<div id="map"
-       style="width: 100%; height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  %><%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
-<div class="d-flex justify-content-center flex-wrap m-3" id="mural">
-  <% @gardens.each do |garden| %>
-    <div class="card m-3 small-garden-card" style="width: 18rem;">
-      <% if garden.image.attached? %>
-        <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
-      <% else %>
-        <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= garden.name %></h5>
-        <h5 class="card-title"><%= garden.location %></h5>
-        <h5 class="card-title">£ <%= garden.price %></h5>
-        <%= link_to 'See details', garden_path(garden), class: "btn btn-primary" %>
+<div class="row d-flex justify-content-between">
+  <div class="col-6 d-flex justify-content-center flex-wrap" id="mural">
+    <% @gardens.each do |garden| %>
+      <div class="card m-3 small-garden-card" style="width: 18rem;">
+        <% if garden.image.attached? %>
+          <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
+        <% else %>
+          <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= garden.name %></h5>
+          <h5 class="card-title"><%= garden.location %></h5>
+          <h5 class="card-title">£ <%= garden.price %></h5>
+          <%= link_to 'See details', garden_path(garden), class: "btn btn-primary" %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="col-6" id="map" style="width: 100%; height: 600px;"data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
