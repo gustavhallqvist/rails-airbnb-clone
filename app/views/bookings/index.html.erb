@@ -2,10 +2,27 @@
 
 <div class="container" style="position:relative; top:70px;">
   <% @bookings.each do |booking|  %>
-
+    <div class="modal fade" id="reviews_<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> <%= booking.garden.name %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= render "reviews/form", booking: booking, review: Review.new %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="card-booking m-3">
       <div class="d-flex">
-      <% if booking.garden.image.attached? %>
+        <% if booking.garden.image.attached? %>
           <%= cl_image_tag booking.garden.image.key, crop: :fill, class: 'card-img' %>
         <% else %>
           <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
@@ -13,28 +30,34 @@
       <div class="card-booking-infos" >
         <h2> <%= link_to booking.garden.name, booking_path(booking) %> </h2>
         <p> Your Booking Date: <%= booking.date %> <strong>Confirmed?</strong> </p>
-    </div>
       </div>
+    <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#reviews_<%= booking.id %>">
+      Add Review
+    </button>
+    </div>
 
-  <div class="d-flex justify-content-center">
-      <% random_rating = rand(2..5) %>
+    <div class="d-flex justify-content-center">
+      <% if booking.review %>
+      <%= rating = booking.review.rating %>
+      <% end %>
       <div class="content text-center">
-          <div class="ratings"> <span class="product-rating"> <%= random_rating %> </span><span>/5</span>
-              <div class="stars">
-                <% random_rating.times do %>
-                <i class="fa fa-star"></i>
-                <% end %>
+        <div class="ratings">
+          <span class="product-rating"> <%= rating %> </span><span>/5</span>
+          <div class="stars">
+              <% booking.review&.rating&.times do %>
+              <i class="fa fa-star"></i>
+              <% end %>
           </div>
+        </div>
       </div>
-  </div>
-
-
     </div>
-      </div>
-  <% end %>
 </div>
+  <% end %>
 
 
+<!-- Button trigger modal -->
+
+<!-- Modal -->
 
 
 
