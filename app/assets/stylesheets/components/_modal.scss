@@ -1,0 +1,51 @@
+
+.modal-header {
+    border-bottom: none
+}
+
+.modal-title {
+    font-size: 25px;
+    font-weight: 400;
+    color: #00363D;
+    text-align: center;
+}
+
+.modal-body {
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    color: #00363D;
+}
+
+.btn-modal {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+}
+
+.btn-modal:hover {
+  background: #27a89c;
+  color: white;
+}
+
+.checkbox-form {
+    background: #F8F0E0;
+    color: #00363D;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 8px
+}
+
+.learn {
+    text-decoration: none;
+    color: #fff
+}
+
+// .add-list {
+//     height: 45px;
+//     line-height: 27px;
+//     background-color: #FB3F4A;
+//     color: #fff !important
+// }
