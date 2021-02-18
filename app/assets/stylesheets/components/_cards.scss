@@ -20,8 +20,19 @@
   text-align: center;
 }
 
+.index-card {
+  height: 400px;
+}
+
 .large-garden-card {
   border-radius: 8px 0px 0px 8px;
+}
+
+.large-garden-card-img {
+  width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 0px 8px 0px 0px;
 }
 
 .card-booking {
