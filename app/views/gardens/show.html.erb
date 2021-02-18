@@ -8,26 +8,20 @@
       <p><%= @garden.location %></p>
       <h5 class="card-title">Price</h5>
       <p>£ <%= @garden.price %></p>
-
-<!-- Added Extras modal -->
-<%= render "components/modal" %>
-<!-- End -->
-
       <%= render "bookings/form", garden: @garden, booking: @booking %>
+      <!-- Added Extras modal -->
+      <%= render "components/modal" %>
+      <!-- End -->
     </div>
   </div>
-  <% if @garden.image.attached? %>
-    <%= cl_image_tag @garden.image.key, crop: :fill, class: 'large-img' %>
-  <% else %>
-    <%= image_tag 'garden.jpg', crop: :cover, class: 'large-img' %>
-  <% end %>
-</div>
-<div class="container">
-  <div id="map"
-       style="width: 100%; height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
+  <div class="card d-flex flex-column large-garden-card-right">
+      <% if @garden.image.attached? %>
+        <%= cl_image_tag @garden.image.key, crop: :fill, class: 'large-garden-card-img' %>
+      <% else %>
+        <%= image_tag 'garden.jpg', crop: :cover, class: 'large-garden-card-img' %>
+      <% end %>
+    <div class="mt-0" id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 
 <div class="d-flex justify-content-center flex-wrap m-3" id="mural">
   <% @reviews.each do |review| %>
