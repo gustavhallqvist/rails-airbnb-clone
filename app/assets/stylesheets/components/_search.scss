@@ -1,0 +1,17 @@
+.search-bar {
+   width: 50%;
+   text-align:center;
+   margin-top: 24px;
+
+  .btn {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+  }
+  .btn:hover {
+  background: #27a89c;
+  color: white;
+}
+}

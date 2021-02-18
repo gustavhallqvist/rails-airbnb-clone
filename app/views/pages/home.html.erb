@@ -13,9 +13,14 @@
   </div>
 </div>
 
-<!-- popular garden block -->
-<div class="wrapper" style="background: rgba(0,0,0,0)">
-  <h3 class="text-center" style="padding: 80px">Some of our most <strong>popular gardens</strong> from around the world</h3>
+<!-- search bar & popular garden block -->
+<div class="wrapper" style="padding: 40px">
+
+<div>
+  <%= render "components/search" %>
+</div>
+
+  <h3 class="text-center" style="padding: 40px">Some of our most <strong>popular gardens</strong> from around the world</h3>
   <div class="container">
     <div class="row">
       <% @gardens.last(3).each do |garden| %>

@@ -1,5 +1,5 @@
-<div class="container">
-  <%= form_tag gardens_path, method: :get do %>
+<div class="container d-flex">
+  <%= form_tag gardens_path, method: :get, class: "search-bar" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
