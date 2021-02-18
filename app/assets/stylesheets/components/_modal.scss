@@ -17,8 +17,21 @@
     color: #00363D;
 }
 
+.btn-modal {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+}
+
+.btn-modal:hover {
+  background: #27a89c;
+  color: white;
+}
+
 .checkbox-form {
-    background: #F5EAD2;
+    background: #F8F0E0;
     color: #00363D;
     margin-top: 10px;
     cursor: pointer;
