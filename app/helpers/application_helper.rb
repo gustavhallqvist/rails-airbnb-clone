@@ -3,7 +3,7 @@ module ApplicationHelper
     if user.avatar.attached?
       user.avatar.variant(resize: "#{size}x#{size}!")
     else
-      image_tag avatar_image.png
+      image_tag 'avatar_image.png'
     end
   end
 end
