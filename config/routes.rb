@@ -5,6 +5,8 @@ resources :users, :only => [:show]
   resources :gardens do
     resources :bookings, only: [:new, :create, :edit, :update]
   end
-  resources :bookings, only: [:index, :show, :destroy]
+  resources :bookings, only: [:index, :show, :destroy] do
+    resources :reviews, only: [:create]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
