@@ -1,6 +1,17 @@
 // Import garden-specific CSS files here.
 @import "show";
+.search-bar {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 
 #map {
   margin-top: 16px;
+  margin-right: 32px;
+  position: sticky;
+  top: 0;
+}
+
+#mural {
+  margin-left: 32px;
 }
