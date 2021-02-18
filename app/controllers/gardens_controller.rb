@@ -17,6 +17,7 @@ class GardensController < ApplicationController
   def show
     @booking = Booking.new
     @markers = [{lat: @garden.latitude, lng: @garden.longitude}]
+    @reviews = @garden.reviews
   end
 
   def new

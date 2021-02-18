@@ -14,12 +14,6 @@
   border-radius: 8px 0px 0px 8px;
 }
 
-.map-garden-card {
-  border-radius: 8px 8px 8px 8px;
-  width: 160px;
-  height: 200px;
-}
-
 .card-booking {
   overflow: hidden;
   height: 120px;
@@ -27,7 +21,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
 }
 
 .card-booking img {
@@ -47,7 +41,7 @@
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 50%;
+  margin-top: 8px;
 }
 
 .card-booking .card-booking-infos {

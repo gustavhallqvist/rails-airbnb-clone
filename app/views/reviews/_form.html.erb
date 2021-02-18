@@ -1,6 +1,6 @@
 <div class="container m-3">
   <%= simple_form_for [ booking, review ] do |f| %>
-    <%= f.input :rating, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :rating, label: "Rating ⭐️", input_html: { min: '0', max: '5', step: 'any' } %>
     <%= f.input :review %>
     <%= f.submit "Leave Review", class: "btn btn-primary" %>
   <% end %>
