@@ -36,7 +36,7 @@
 
 .card-booking img {
   height: 100%;
-  width: 120px;
+  width: 200px !important;
   object-fit: cover;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .card-booking p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -55,6 +55,9 @@
 }
 
 .card-booking .card-booking-infos {
+  h2{
+    font-size: 32px;
+  }
   padding: 16px;
 }
 
