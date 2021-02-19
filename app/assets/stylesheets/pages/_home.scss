@@ -61,11 +61,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1em;
+  font-size: 1.05em;
   border-bottom: 1px solid light-gray;
   background: white;
   a {
     text-decoration: none;
+    color: #2BBBAD
   }
 }
 
@@ -95,6 +96,15 @@
   a {
     text-decoration: none;
   }
+}
+
+.carousel-indicators {
+  padding-bottom: 8px;
+}
+
+.carousel-indicators .active{
+    background-color: white;
+    height: 4px;
 }
 
 

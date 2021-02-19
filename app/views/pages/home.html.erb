@@ -16,18 +16,31 @@
     <%= render "components/search" %>
   </div>
 </div>
+
 <!-- popular garden block -->
 <div class="wrapper">
   <h3 class="text-center" style="padding: 40px">Some of our most <strong>popular gardens</strong> from around the world</h3>
-  <div class="container">
-    <div class="row">
+</div>
+
+<!-- carousel -->
+<div class="container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row">
       <% @gardens.last(3).each do |garden| %>
        <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="card-header" style="text-align: center; border-radius: 8px; color: #00363D;">
           <%= link_to garden.name, garden_path(garden), class: "garden_name" %>
           <p>City</p>
-         <div class="home-card-container">
-          </div>
+         <div class="home-card-container"></div>
           <div class="card m-3 small-garden-card" style="box-shadow: 0 0 3px rgba(0,0,0,0.3);">
             <% if garden.image.attached? %>
               <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
@@ -48,13 +61,81 @@
       <% end %>
     </div>
   </div>
+
+  <div class="carousel-item">
+    <div class="row">
+      <% @gardens.first(3).each do |garden| %>
+       <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-header" style="text-align: center; border-radius: 8px; color: #00363D;">
+          <%= link_to garden.name, garden_path(garden), class: "garden_name" %>
+          <p>City</p>
+         <div class="home-card-container"></div>
+          <div class="card m-3 small-garden-card" style="box-shadow: 0 0 3px rgba(0,0,0,0.3);">
+            <% if garden.image.attached? %>
+              <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
+            <% else %>
+              <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
+            <% end %>
+          <div class="card-links">
+            <div>
+              <i class="fas fa-heart"></i> 356
+            </div>
+          <div>
+            <%= link_to "Book Garden", garden_path(garden) %>
+            </div>
+          </div>
+          </div>
+        </div>
+       </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="carousel-item">
+    <div class="row">
+      <% @gardens.last(3).each do |garden| %>
+       <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-header" style="text-align: center; border-radius: 8px; color: #00363D;">
+          <%= link_to garden.name, garden_path(garden), class: "garden_name" %>
+          <p>City</p>
+         <div class="home-card-container"></div>
+          <div class="card m-3 small-garden-card" style="box-shadow: 0 0 3px rgba(0,0,0,0.3);">
+            <% if garden.image.attached? %>
+              <%= cl_image_tag garden.image.key, crop: :fill, class: 'small-garden-card-img' %>
+            <% else %>
+              <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
+            <% end %>
+          <div class="card-links">
+            <div>
+              <i class="fas fa-heart"></i> 356
+            </div>
+          <div>
+            <%= link_to "Book Garden", garden_path(garden) %>
+            </div>
+           </div>
+          </div>
+        </div>
+       </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
 </div>
 
 <!-- popular hosts -->
 <div class="wrapper">
   <h3 class="text-center" style="padding: 80px">Some of our most <strong>popular hosts</strong> from around the world</h3>
 </div>
-
 
 <!-- reviews -->
 <div class="wrapper">
