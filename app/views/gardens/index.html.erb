@@ -6,7 +6,7 @@
         class: "form-control",
         placeholder: "Search by location"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-new-primary" %>
     </div>
   <% end %>
 </div>
@@ -20,11 +20,11 @@
         <% else %>
           <%= image_tag 'garden.jpg', crop: :fill, class: 'small-garden-card-img' %>
         <% end %>
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title"><%= garden.name %></h5>
           <h5 class="card-title"><%= garden.location %></h5>
           <h5 class="card-title">£ <%= garden.price %></h5>
-          <%= link_to 'See details', garden_path(garden), class: "btn btn-primary" %>
+          <%= link_to 'See details', garden_path(garden), class: "btn btn-new-primary mt-auto"%>
         </div>
       </div>
     <% end %>
