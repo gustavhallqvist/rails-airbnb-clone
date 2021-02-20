@@ -14,7 +14,7 @@
 
  .ratings {
      background-color: #fff;
-     padding: 54px;
+     padding: 34px;
 
  }
 
@@ -24,10 +24,20 @@
 
  .stars i {
      font-size: 18px;
-     color: #28a745
+     color: #2BBBAD
  }
 
  .rating-text {
      margin-top: 10px
 
  }
+.btn-review{
+ color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+}
+.review-stars {
+  width: 200px;
+}
