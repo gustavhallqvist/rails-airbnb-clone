@@ -19,7 +19,7 @@
 &ensp;
 
 <% if @booking.garden.image.attached? %>
-  <%= cl_image_tag garden.image.key, crop: :fill, class: 'card-img' %>
+  <%= cl_image_tag @booking.garden.image.key, crop: :fill, class: 'card-img' %>
 <% else %>
   <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
 <% end %>

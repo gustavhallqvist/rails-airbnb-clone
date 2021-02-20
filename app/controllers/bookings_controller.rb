@@ -3,6 +3,7 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = Booking.where(user: current_user).reverse
+    @booking_requests = current_user.gardens.map { |garden| garden.bookings}
   end
 
   def new

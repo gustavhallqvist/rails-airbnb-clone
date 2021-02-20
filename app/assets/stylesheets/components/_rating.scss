@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+ body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Open Sans', serif;
+     background: #eee
+ }
+
+ .content {
+     width: 420px;
+     margin-top: auto;
+ }
+
+ .ratings {
+     background-color: #fff;
+     padding: 34px;
+
+ }
+
+ .product-rating {
+     font-size: 20px
+ }
+
+ .stars i {
+     font-size: 18px;
+     color: #2BBBAD
+ }
+
+ .rating-text {
+     margin-top: 10px
+
+ }
+.btn-review{
+ color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+  height: 40px;
+}
+.review-stars {
+  width: 200px;
+}

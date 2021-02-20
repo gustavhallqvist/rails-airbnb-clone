@@ -10,26 +10,45 @@
   border-radius: 8px 8px 0px 0px;
 }
 
+.small-garden-card-btn {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #2BBBAD;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.index-card {
+  height: 400px;
+}
+
 .large-garden-card {
   border-radius: 8px 0px 0px 8px;
 }
 
-.map-garden-card {
-  width: 8rem;
+.large-garden-card-img {
+  width: 600px;
+  height: 302px;
+  object-fit: cover;
+  border-radius: 0px 8px 0px 0px;
 }
 
 .card-booking {
   overflow: hidden;
-  height: 120px;
+  height: 170px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+
 }
 
 .card-booking img {
-  height: 100%;
-  width: 120px;
+  height: auto;
+  width: 272px !important;
   object-fit: cover;
 }
 
@@ -40,7 +59,7 @@
 }
 
 .card-booking p {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
@@ -48,10 +67,19 @@
 }
 
 .card-booking .card-booking-infos {
+  h2{
+    font-size: 24px;
+  }
   padding: 16px;
 }
 
 .small-garden-card:hover{
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.card-inner{
+  align-items: center;
+}
+.card-booking:hover{
+  transform: translate(1px 1px)
 }
