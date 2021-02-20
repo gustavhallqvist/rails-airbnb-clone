@@ -10,4 +10,12 @@ class Garden < ApplicationRecord
   pg_search_scope :search_by_location,
                   against: [:location],
                   using: { tsearch: { prefix: true } }
+  def average_rating
+    ratings = reviews.map{ |review| review.rating}
+      if ratings.count > 0
+    ratings.sum / ratings.count
+      else
+      0
+    end
+  end
 end
