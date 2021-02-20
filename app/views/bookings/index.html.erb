@@ -32,12 +32,18 @@
           <% end %>
           <div class="card-booking-infos" >
             <h2> <%= link_to booking.garden.name, booking_path(booking) %> </h2>
-            <p> Your Booking Date: <%= booking.date.strftime("%Y-%M-%D") %> <strong>Confirmed?</strong> </p>
+            <p> Your Booking Date: <%= booking.date.strftime("%Y-%M-%D") %> <strong>
+              <% if [true, false].sample == true %>
+              <i class="fa fa-thumbs-up"> Confirmed</i>
+              <% else %>
+              <i class="fa fa-thumbs-down" > Not confirmed</i>
+              <% end %></strong> </p>
           </div>
           <button type="button" class="btn btn-review m-3" data-toggle="modal" data-target="#reviews_<%= booking.id %>">
             Add Review
           </button>
-        </div>
+
+          </div>
 
         <div class="d-flex justify-content-center row m-3 review-stars">
           <% if booking.review %>
