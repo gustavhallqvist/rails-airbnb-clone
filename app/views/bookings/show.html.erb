@@ -1,36 +1,42 @@
-<h1 class="d-flex justify-content-center m-3">You made it </h1>
+<div class="container">
 
+  <h1 class="d-flex justify-content-center m-3">You have succesfully requested a booking </h1>
+  <h2 class="d-flex justify-content-center m-3"> The owner of  <%= @booking.garden.name%> will confirm shortly </h2>
+  <h3 class="d-flex justify-content-center m-3"> The details of your booking are as follows</h3>
 
-<h2 class="d-flex justify-content-center m-3"> The owner of  <%= @booking.garden.name%> will confirm shortly </h2>
-
-
-
-<h3 class="d-flex justify-content-center m-3"> The details of your booking are as follows</h3>
-
-
-
-&emsp;
-<ul>
-  <li> Date &time : <%= @booking.date%></li>
-  <li> Price : £<%= @booking.garden.price%></li>
-  <li> Address : <%= @booking.garden.location%></li>
-  <li> About the garden : <%= @booking.garden.description%></li>
-</ul>
-&ensp;
-
-<% if @booking.garden.image.attached? %>
-  <%= cl_image_tag @booking.garden.image.key, crop: :fill, class: 'card-img' %>
-<% else %>
-  <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
-<% end %>
-
-
-<div style="height:10%; position:relative; bottom:20px;" class="d-flex justify-content-botom m-3">
-  <ul>
-  <li><%= link_to "My details", current_user %></li>
-  <li><%= link_to "Delete Booking ", @booking, method: "delete"%></li>
-  <li><%= link_to "Your bookings", bookings_path %></li>
-  <li> <%= link_to "Make another booking", gardens_path %></li>
-</ul>
+<div class="d-flex justify-content-center m-3"   background: rgba(40, 40, 100, 0.25);>
+  <div class="card large-garden-card" style="width: 32rem;">
+    <div class="card-body">
+      <h2 class="card-title"><b><%= @booking.garden.name %></b></h2>
+      <h5 class="card-title">Date & Time</h5>
+      <p><%= @booking.date %></p>
+      <h5 class="card-title">Location</h5>
+      <p><%= @booking.garden.location %></p>
+      <h5 class="card-title">Price</h5>
+      <p>£ <%= @booking.garden.price %></p>
+      <h5 class="card-title">About the garden</h5>
+      <p><%= @booking.garden.description%></p>
+      <h5 class="card-title">Extras</h5>
+      <!-- Added Extras modal -->
+      <%= render "components/modal" %>
+      <!-- End -->
+      <h5 class="card-title">Actions</h5>
+      <div style="height:10%; position:relative; bottom:20px;" class="d-flex justify-content-botom m-3">
+        <ul>
+        <li><%= link_to "My details", current_user %></li>
+        <li><%= link_to "Delete Booking ", @booking, method: "delete"%></li>
+        <li><%= link_to "Your bookings", bookings_path %></li>
+        <li> <%= link_to "Make another booking", gardens_path %></li>
+      </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card d-flex flex-column large-garden-card-right">
+      <% if @booking.garden.image.attached? %>
+        <%= cl_image_tag @booking.garden.image.key, crop: :fill, class: 'large-garden-card-img' %>
+      <% else %>
+        <%= image_tag 'garden.jpg', crop: :cover, class: 'large-garden-card-img' %>
+      <% end %>
+    <div class="mt-0" id="map" style="width: 100%; height: 302px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
 </div>
-
