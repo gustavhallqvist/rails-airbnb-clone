@@ -31,7 +31,7 @@
             <%= image_tag 'garden.jpg', crop: :fill, class: 'card-img' %>
           <% end %>
           <div class="card-booking-infos" >
-            <h2> <%= link_to booking.garden.name, booking_path(booking) %> </h2>
+            <h2> <%= link_to booking.garden.name, garden_path(booking.garden) %> </h2>
             <p> Your Booking Date: <%= booking.date.strftime("%Y-%M-%D") %> <strong>
               <% if [true, false].sample == true %>
               <i class="fa fa-thumbs-up"> Confirmed</i>
