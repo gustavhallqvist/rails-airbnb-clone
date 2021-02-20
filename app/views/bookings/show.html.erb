@@ -37,6 +37,6 @@
       <% else %>
         <%= image_tag 'garden.jpg', crop: :cover, class: 'large-garden-card-img' %>
       <% end %>
-    <div class="mt-0" id="map" style="width: 100%; height: 302px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="mt-0" id="map" style="width: 103%; height: 350px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>

@@ -23,6 +23,7 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def show
    @bookings = Booking.where(user: current_user)
+   @markers = [{lat: @booking.garden.latitude, lng: @booking.garden.longitude}]
   end
 
   def edit; end
