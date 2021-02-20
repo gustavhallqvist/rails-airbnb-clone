@@ -3,6 +3,8 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = Booking.where(user: current_user).reverse
+    #aise
+    #@booking_requests = Booking.where(garden.user: current_user).reverse
   end
 
   def new
