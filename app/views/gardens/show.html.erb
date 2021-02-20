@@ -14,7 +14,9 @@
         <% @reviews.each do |review| %>
           <% sum += review.rating %>
         <% end %>
-        <%= sum / @reviews.size %> / 5 &#11088;
+        <% if @reviews.size != 0 %>
+          <%= sum / @reviews.size %> / 5 &#11088;
+        <% end %>
       </p>
       <h5 class="card-title">Extras</h5>
       <!-- Added Extras modal -->
