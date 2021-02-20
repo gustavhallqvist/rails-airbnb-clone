@@ -37,7 +37,7 @@ puts 'Creating sample gardens'
   garden_2 = Garden.create(
     name: "Small Garden",
     description: "Small garden in the heart of Paris",
-    location: "Rue Saint-Dominique, Paris",
+    location: "Saint-Dominique, Paris",
     price: 70,
     user: User.all.sample
     )

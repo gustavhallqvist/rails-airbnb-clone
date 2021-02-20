@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .parallax {
-  background-image: url("hero_background.png"); /* style="background-image: url('<%= asset_path('hero_background.png')*/
+  background-image: asset_url("hero_background.png"); /* style="background-image: url('<%= asset_path('hero_background.png')*/
   height: 110vh;
   background-attachment: fixed;
   background-position: center top;
