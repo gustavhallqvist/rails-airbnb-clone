@@ -1,17 +1,27 @@
 <div class="d-flex justify-content-center m-3"   background: rgba(40, 40, 100, 0.25);>
   <div class="card large-garden-card" style="width: 32rem;">
     <div class="card-body">
-      <h2 class="card-title"><%= @garden.name %></h2>
+      <h2 class="card-title"><b><%= @garden.name %></b></h2>
       <h5 class="card-title">Description</h5>
       <p><%= @garden.description %></p>
       <h5 class="card-title">Location</h5>
       <p><%= @garden.location %></p>
       <h5 class="card-title">Price</h5>
       <p>£ <%= @garden.price %></p>
-      <%= render "bookings/form", garden: @garden, booking: @booking %>
+      <h5 class="card-title">Average Rating</h5>
+      <p>
+        <% sum = 0 %>
+        <% @reviews.each do |review| %>
+          <% sum += review.rating %>
+        <% end %>
+        <%= sum / @reviews.size %> / 5 &#11088;
+      </p>
+      <h5 class="card-title">Extras</h5>
       <!-- Added Extras modal -->
       <%= render "components/modal" %>
       <!-- End -->
+      <h5 class="card-title">Date</h5>
+      <%= render "bookings/form", garden: @garden, booking: @booking %>
     </div>
   </div>
   <div class="card d-flex flex-column large-garden-card-right">
@@ -20,17 +30,17 @@
       <% else %>
         <%= image_tag 'garden.jpg', crop: :cover, class: 'large-garden-card-img' %>
       <% end %>
-    <div class="mt-0" id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="mt-0" id="map" style="width: 100%; height: 302px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
+</div>
 
-<div class="d-flex justify-content-center flex-wrap m-3" id="mural">
+<div class="d-flex flex-wrap" id="review-mural">
   <% @reviews.each do |review| %>
     <div class="card m-3 small-garden-card" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title"><%= review.booking.user.email.split("@")[0] %></h5>
-        <h5 class="card-title"><%= review.review %></h5>
-        <h5 class="card-title"><%= review.rating %></h5>
-
+        <h5 class="card-title"><%= review.rating %> / 5 &#11088;</h5>
+        <h5 class="card-title">"<%= review.review %>"</h5>
+        <h5 class="card-title"><em>from <%= review.booking.user.email.split("@")[0] %></em></h5>
       </div>
     </div>
   <% end %>
