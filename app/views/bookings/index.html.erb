@@ -21,10 +21,10 @@
       </div>
     </div>
 
-    <div class="card-booking m-3">
+    <div class="card-booking my-5">
 
 
-        <div class="d-flex">
+        <div class="d-flex card-inner">
           <% if booking.garden.image.attached? %>
             <%= cl_image_tag booking.garden.image.key, crop: :fill, class: 'card-img' %>
           <% else %>
